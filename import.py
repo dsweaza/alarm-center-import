@@ -3,11 +3,11 @@ import csv
 
 server = "HOST_ADDR"
 database = "SUBSCRIBER"
+connection_string = "DRIVER={SQL Server};SERVER=" + server + ";DATABASE=" + database + ";Trusted_Connection=yes;"
 input_file = 'zones.csv'
 output_file = 'out.csv'
 
-"""CONNECTS VIA TRUSTED CONNECTION / MUST BE LOGGED INTO COMPUTER WITH ACCOUNT THAT HAS ACCESS TO DATABASE"""
-conn = pyodbc.connect('DRIVER={SQL Server};SERVER=' + server + ';DATABASE=' + database + ';Trusted_Connection=yes;')
+conn = pyodbc.connect(connection_string)
 cursor = conn.cursor()  
 
 def main():
